@@ -8,7 +8,7 @@
  */
 
 import 'package:fluro/src/common.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_web/widgets.dart';
 
 enum RouteTreeNodeType {
   component,

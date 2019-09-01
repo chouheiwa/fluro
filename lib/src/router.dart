@@ -8,12 +8,12 @@
  */
 
 import 'dart:async';
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:fluro/fluro.dart';
 import 'package:fluro/src/common.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_web/cupertino.dart';
+import 'package:flutter_web/material.dart';
 
 class Router {
   static final appRouter = Router();
@@ -124,25 +124,7 @@ class Router {
 
     RouteCreator creator =
         (RouteSettings routeSettings, Map<String, List<String>> parameters) {
-      bool isNativeTransition = (transition == TransitionType.native ||
-          transition == TransitionType.nativeModal);
-      if (isNativeTransition) {
-        if (Platform.isIOS) {
-          return CupertinoPageRoute<dynamic>(
-              settings: routeSettings,
-              fullscreenDialog: transition == TransitionType.nativeModal,
-              builder: (BuildContext context) {
-                return handler.handlerFunc(context, parameters);
-              });
-        } else {
-          return MaterialPageRoute<dynamic>(
-              settings: routeSettings,
-              fullscreenDialog: transition == TransitionType.nativeModal,
-              builder: (BuildContext context) {
-                return handler.handlerFunc(context, parameters);
-              });
-        }
-      } else if (transition == TransitionType.material ||
+      if (transition == TransitionType.material ||
           transition == TransitionType.materialFullScreenDialog) {
         return MaterialPageRoute<dynamic>(
             settings: routeSettings,

@@ -8,16 +8,22 @@ homepage: https://github.com/theyakka/fluro
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
-  flutter: ">=1.2.0"
+  
 
 dependencies:
-  flutter:
-    sdk: flutter
+  flutter_web: any
+  flutter_web_ui: any
+  
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  test: ^1.6.0
+# dev_dependencies:
+  
 
-flutter:
-  uses-material-design: false
+dependency_overrides:
+  flutter_web:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web
+  flutter_web_ui:
+    git:
+      url: https://github.com/flutter/flutter_web
+      path: packages/flutter_web_ui
